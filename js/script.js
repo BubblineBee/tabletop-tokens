@@ -37,7 +37,7 @@ function redraw() {
 		var img = new Image();
 		img.src = imgurl;
 		
-		context.drawImage(img, x.value, y.value);
+		context.drawImage(img, parseInt(x.value), parseInt(y.value));
 		context.globalCompositeOperation = "source-over";
 	}
 	
