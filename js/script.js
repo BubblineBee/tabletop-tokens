@@ -26,7 +26,7 @@ function redraw() {
 		var img = new Image();
 		img.src = imgurl
 		
-		context.drawImage(x.value, y.value, img)
+		context.drawImage(img, x.value, y.value)
 	}
 	
 	canvas.width = cw;
