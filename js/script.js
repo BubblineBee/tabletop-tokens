@@ -20,7 +20,17 @@ function redraw() {
 	var cw = (width.value * 0.03937008 * dpi.value);
 	var ch = (height.value * 0.03937008 * dpi.value);
 	
+	canvas.width = cw;
+	canvas.height = ch;
+	
+	context.beginPath();
+	context.fillStyle = "FFFFFF";
+	context.ellipse(cw / 2, ch / 2, cw / 2 - 1, ch / 2 - 1, 0, 0, Math.PI * 2);
+	context.fill();
+	
 	if (userimage.value) {
+		context.globalCompositeOperation = "source-atop";
+		
 		var fr = new FileReader();
 		fr.readAsDataURL(userimage.files[0])
 		var imgurl = fr.results;
@@ -28,12 +38,6 @@ function redraw() {
 		img.src = imgurl;
 		
 		context.drawImage(img, x.value, y.value);
+		context.globalCompositeOperation = "source-over";
 	}
-	
-	canvas.width = cw;
-	canvas.height = ch;
-	
-	context.beginPath();
-	context.ellipse(cw / 2, ch / 2, cw / 2 - 1, ch / 2 - 1, 0, 0, Math.PI * 2);
-	context.stroke();
 }
