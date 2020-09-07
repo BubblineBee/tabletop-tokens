@@ -37,7 +37,7 @@ function redraw() {
 		context.globalCompositeOperation = "source-atop";
 		
 		fr.readAsDataURL(userimage.files[0]);
-		console.log(fr.result)
+		console.log(fr.result);
 		img.src = fr.result;
 		console.log(img.src)
 		
