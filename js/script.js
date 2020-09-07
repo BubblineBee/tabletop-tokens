@@ -44,5 +44,5 @@ function redraw() {
 	var bord = new Image();
 	bord.src = "img/border_black.svg";
 	
-	context.drawImage(bord, 0, 0, cw, ch);
+	context.drawImage(bord, 0, 0, cw - 1, ch - 1);
 }
