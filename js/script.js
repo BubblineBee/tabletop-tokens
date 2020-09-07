@@ -24,9 +24,9 @@ function redraw() {
 		var fr = new FileReader();
 		var imgurl = fr.readAsDataURL(userimage.files[0]);
 		var img = new Image();
-		img.src = imgurl
+		img.src = imgurl;
 		
-		context.drawImage(img, x.value, y.value)
+		context.drawImage(img, x.value, y.value);
 	}
 	
 	canvas.width = cw;
