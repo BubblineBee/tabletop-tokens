@@ -14,7 +14,13 @@ height.addEventListener("change", redraw);
 x.addEventListener("change", redraw);
 y.addEventListener("change", redraw);
 
+redraw()
+
 function redraw() {
 	canvas.width = width
 	canvas.height = height
+	
+	context.beginPath();
+	context.ellipse(width / 2, height / 2, width / 2, height / 2, 0, 0, Math.TAU)
+	context.stroke();
 }
