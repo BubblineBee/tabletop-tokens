@@ -1,11 +1,12 @@
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
-var userimage = document.getElementById("userimage");;
-var dpi = document.getElementById("dpi");;
-var width = document.getElementById("width");;
-var height = document.getElementById("height");;
-var x = document.getElementById("xoffset");;
-var y = document.getElementById("yoffset");;
+var userimage = document.getElementById("userimage");
+var dpi = document.getElementById("dpi");
+var dpi = document.getElementById("scale");
+var width = document.getElementById("width");
+var height = document.getElementById("height");
+var x = document.getElementById("xoffset");
+var y = document.getElementById("yoffset");
 var fr = new FileReader();
 var img = new Image();
 var bord = new Image();
@@ -14,6 +15,7 @@ bord.src = "img/border_black.svg";
 
 userimage.addEventListener("change", imageLoad);
 dpi.addEventListener("change", redraw);
+scale.addEventListener("change", redraw);
 width.addEventListener("change", redraw);
 height.addEventListener("change", redraw);
 x.addEventListener("change", redraw);
@@ -31,7 +33,7 @@ function redraw() {
 	
 	context.beginPath();
 	context.fillStyle = "#FFFFFF";
-	context.ellipse((cw / 2) - 2, (ch / 2) - 2, cw / 2 - 1, ch / 2 - 1, 0, 0, Math.PI * 2);
+	context.ellipse((cw / 2), (ch / 2), cw / 2 - 2, ch / 2 - 2, 0, 0, Math.PI * 2);
 	context.fill();
 	
 	context.globalCompositeOperation = "source-atop";
@@ -39,7 +41,7 @@ function redraw() {
 	if (fr.readyState == 2) {
 		img.src = fr.result;
 		
-		context.drawImage(img, parseInt(x.value), parseInt(y.value));
+		context.drawImage(img, parseInt(x.value), parseInt(y.value), img.naturalWidth * (parseFloat(scale.value) / 100), img.naturalHeight * (parseFloat(scale.value) / 100));
 	}
 	
 	context.globalCompositeOperation = "source-over";
