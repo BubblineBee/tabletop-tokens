@@ -33,7 +33,7 @@ function redraw() {
 		
 		var fr = new FileReader();
 		fr.readAsDataURL(userimage.files[0]);
-		var imgurl = fr.results;
+		var imgurl = fr.result;
 		var img = new Image();
 		img.src = imgurl;
 		
