@@ -8,6 +8,9 @@ var x = document.getElementById("xoffset");;
 var y = document.getElementById("yoffset");;
 var fr = new FileReader();
 var img = new Image();
+var bord = new Image();
+
+bord.src = "img/border_black.svg";
 
 userimage.addEventListener("change", redraw);
 dpi.addEventListener("change", redraw);
@@ -40,11 +43,8 @@ function redraw() {
 		context.drawImage(img, parseInt(x.value), parseInt(y.value));
 		context.globalCompositeOperation = "source-over";
 		
-		output.log("Userimage ran.")
+		console.log("Userimage ran.")
 	}
-	
-	var bord = new Image();
-	bord.src = "img/border_black.svg";
 	
 	context.drawImage(bord, 0, 0, cw - 1, ch - 1);
 }
