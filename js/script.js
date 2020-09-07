@@ -20,8 +20,13 @@ function redraw() {
 	var cw = (width.value * 0.03937008 * dpi.value);
 	var ch = (height.value * 0.03937008 * dpi.value);
 	
-	if userimage.value {
-		print("Value.")
+	if (userimage.value) {
+		var fr = new FileReader();
+		var imgurl = fr.readAsDataURL(userimage.files[0]);
+		var img = new Image();
+		img.src = imgurl
+		
+		canvas.drawImage(x.value, y.value, img)
 	}
 	
 	canvas.width = cw;
