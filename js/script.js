@@ -17,10 +17,13 @@ y.addEventListener("change", redraw);
 redraw()
 
 function redraw() {
-	canvas.width = (width.value * 0.03937008 * 70)
-	canvas.height = (height.value * 0.03937008 * 70)
+	var cw = (width.value * 0.03937008 * 70);
+	var ch = (height.value * 0.03937008 * 70);
+	
+	canvas.width = cw;
+	canvas.height = ch;
 	
 	context.beginPath();
-	context.ellipse(width / 2, height / 2, width / 2, height / 2, 0, 0, Math.PI * 2)
+	context.ellipse(cw / 2, ch / 2, cw / 2, ch / 2, 0, 0, Math.PI * 2);
 	context.stroke();
 }
