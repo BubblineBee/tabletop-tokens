@@ -24,7 +24,7 @@ function redraw() {
 	canvas.height = ch;
 	
 	context.beginPath();
-	context.fillStyle = "FFFFFF";
+	context.fillStyle = "#FFFFFF";
 	context.ellipse(cw / 2, ch / 2, cw / 2 - 1, ch / 2 - 1, 0, 0, Math.PI * 2);
 	context.fill();
 	
@@ -32,7 +32,7 @@ function redraw() {
 		context.globalCompositeOperation = "source-atop";
 		
 		var fr = new FileReader();
-		fr.readAsDataURL(userimage.files[0])
+		fr.readAsDataURL(userimage.files[0]);
 		var imgurl = fr.results;
 		var img = new Image();
 		img.src = imgurl;
@@ -40,4 +40,9 @@ function redraw() {
 		context.drawImage(img, x.value, y.value);
 		context.globalCompositeOperation = "source-over";
 	}
+	
+	var bord = new Image();
+	bord.src = "img/border_black.svg";
+	
+	context.drawImage(bord, 0, 0);
 }
