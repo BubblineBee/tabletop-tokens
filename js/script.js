@@ -37,13 +37,12 @@ function redraw() {
 		context.globalCompositeOperation = "source-atop";
 		
 		fr.readAsDataURL(userimage.files[0]);
-		var imgurl = fr.result;
-		img.src = imgurl;
+		img.src = fr.result;
 		
 		context.drawImage(img, parseInt(x.value), parseInt(y.value));
 		context.globalCompositeOperation = "source-over";
 		
-		console.log("Userimage ran.")
+		console.log(img.src)
 	}
 	
 	context.drawImage(bord, 0, 0, cw - 1, ch - 1);
