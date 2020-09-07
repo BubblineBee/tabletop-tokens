@@ -44,9 +44,10 @@ function redraw() {
 			context.globalCompositeOperation = "source-over";
 		} else {
 			redraw();
-			break;
+			return;
 		}
 	}
 	
 	context.drawImage(bord, 0, 0, cw - 1, ch - 1);
+	return;
 }
