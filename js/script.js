@@ -36,7 +36,10 @@ function redraw() {
 	if (userimage.value) {
 		context.globalCompositeOperation = "source-atop";
 		
-		fr.readAsDataURL(userimage.files[0]);
+		if (fr.readyState != 1) {
+			fr.readAsDataURL(userimage.files[0]);
+		}
+		
 		if (fr.readyState == 2) {
 			img.src = fr.result;
 		
