@@ -21,8 +21,9 @@ height.addEventListener("change", redraw);
 x.addEventListener("change", redraw);
 y.addEventListener("change", redraw);
 fr.addEventListener("load", redraw)
-
-redraw()
+window.addEventListener('DOMContentLoaded', (event) => {
+    redraw()
+});
 
 function redraw() {
 	var cw = (width.value * 0.03937008 * dpi.value);
