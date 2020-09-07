@@ -21,6 +21,6 @@ function redraw() {
 	canvas.height = height
 	
 	context.beginPath();
-	context.ellipse(width / 2, height / 2, width / 2, height / 2, 0, 0, Math.TAU)
+	context.ellipse(width / 2, height / 2, width / 2, height / 2, 0, 0, Math.PI * 2)
 	context.stroke();
 }
