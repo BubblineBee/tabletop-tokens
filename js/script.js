@@ -21,7 +21,7 @@ y.addEventListener("change", redraw);
 
 redraw()
 
-function redraw() {
+async function redraw() {
 	var cw = (width.value * 0.03937008 * dpi.value);
 	var ch = (height.value * 0.03937008 * dpi.value);
 	
@@ -36,18 +36,14 @@ function redraw() {
 	if (userimage.value) {
 		context.globalCompositeOperation = "source-atop";
 		
-		if (fr.readyState != 1) {
-			fr.readAsDataURL(userimage.files[0]);
-		}
-		
+		await fr.readAsDataURL(userimage.files[0]);
 		if (fr.readyState == 2) {
 			img.src = fr.result;
 		
 			context.drawImage(img, parseInt(x.value), parseInt(y.value));
 			context.globalCompositeOperation = "source-over";
 		} else {
-			redraw();
-			return;
+			console.log("Load incomplete.");
 		}
 	}
 	
