@@ -22,7 +22,8 @@ function redraw() {
 	
 	if (userimage.value) {
 		var fr = new FileReader();
-		var imgurl = fr.readAsDataURL(userimage.files[0]);
+		fr.readAsDataURL(userimage.files[0])
+		var imgurl = fr.results;
 		var img = new Image();
 		img.src = imgurl;
 		
