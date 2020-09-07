@@ -27,7 +27,7 @@ function redraw() {
 	
 	context.beginPath();
 	context.fillStyle = "#FFFFFF";
-	context.ellipse(cw / 2, ch / 2, cw / 2 - 1, ch / 2 - 1, 0, 0, Math.PI * 2);
+	context.ellipse((cw / 2) - 2, (ch / 2) - 2, cw / 2 - 1, ch / 2 - 1, 0, 0, Math.PI * 2);
 	context.fill();
 	
 	if (userimage.value) {
@@ -39,6 +39,8 @@ function redraw() {
 		
 		context.drawImage(img, parseInt(x.value), parseInt(y.value));
 		context.globalCompositeOperation = "source-over";
+		
+		output.log("Userimage ran.")
 	}
 	
 	var bord = new Image();
