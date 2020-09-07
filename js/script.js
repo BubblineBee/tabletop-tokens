@@ -6,6 +6,8 @@ var width = document.getElementById("width");;
 var height = document.getElementById("height");;
 var x = document.getElementById("xoffset");;
 var y = document.getElementById("yoffset");;
+var fr = new FileReader();
+var img = new Image();
 
 userimage.addEventListener("change", redraw);
 dpi.addEventListener("change", redraw);
@@ -31,10 +33,8 @@ function redraw() {
 	if (userimage.value) {
 		context.globalCompositeOperation = "source-atop";
 		
-		var fr = new FileReader();
 		fr.readAsDataURL(userimage.files[0]);
 		var imgurl = fr.result;
-		var img = new Image();
 		img.src = imgurl;
 		
 		context.drawImage(img, parseInt(x.value), parseInt(y.value));
